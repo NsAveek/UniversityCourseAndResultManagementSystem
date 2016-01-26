@@ -21,13 +21,17 @@ namespace UniversityManagementApp.Controllers
         [HttpPost]
         public ActionResult SaveTeacher(Teacher teacher)
         {
-            ViewBag.message = teacherManager.Save(teacher);
+            ViewBag.Message = teacherManager.Save(teacher);
+            ViewBag.Departments = teacherManager.GetAllDepartments();
+            ViewBag.Designations = teacherManager.GetAllDesignations();
             return View(teacher);
         }
 
         [HttpGet]
         public ActionResult SaveTeacher()
         {
+            ViewBag.Departments = teacherManager.GetAllDepartments();
+            ViewBag.Designations = teacherManager.GetAllDesignations();
             return View();
         }
     }

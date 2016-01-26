@@ -1,4 +1,5 @@
-﻿
+﻿@using System.Web.UI.WebControls
+
 @{
     Layout = null;
 }
@@ -11,7 +12,100 @@
     <title>SaveTeacher</title>
 </head>
 <body>
-    <div> 
+    <div>
+        <form method="POST" id="saveTeacherForm">
+
+
+            <table>
+                <tr>
+                    @if (ViewBag.Message != null)
+                    {
+                        @ViewBag.Message;
+                    }
+
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" id="TeacherName" name="TeacherName"/></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" id="TeacherAddress" name="TeacherAddress" /></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" id="TeacherEmail" name="TeacherEmail" /></td>
+                </tr>
+                <tr>
+                    <td>Contact No. </td>
+                    <td><input type="text" id="TeacherContactNo" name="TeacherContactNo" /></td>
+                </tr>
+                <tr>
+                    <td>Designation </td>
+                    <td><select name="TeacherDesignation" id="TeacherDesignation">
+                            @foreach (var designation in ViewBag.Designations)
+                            {
+                                <option value="@designation.DesignationId">
+                                    @designation.DesignationName
+                                </option>
+                            }
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Department </td>
+                    <td>
+                        <select name="TeacherDepartment" id="TeacherDepartment">
+                            @foreach (var department in ViewBag.Departments)
+                            {
+                                <option value="@department.DepartmentId">
+                                    @department.DepartmentName
+                                </option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Credit To Be Taken</td>
+                    <td><input type="text" id="TeacherCreditTaken" name="TeacherCreditTaken" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Save" /></td>
+                </tr>
+            </table>
+        </form>
     </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script>
+        $().ready(function () {
+            $("#saveTeacherForm").validate({
+                rules: {
+                    TeacherName: required,
+                    TeacherAddress: required,
+                    TeacherEmail: {
+                        field: {
+                            required: true,
+                            email: true
+                        }
+                    },
+                    TeacherContactNo: required,
+                    TeacherDesignation: required,
+                    TeacherDepartment: required,
+                    TeacherCreditTaken: required
+                },
+                messages: {
+                    TeacherName: "Please enter a Name",
+                    TeacherAddress: "Please enter an Address",
+                    TeacherEmail: "You must enter an Email Address",
+                    TeacherContactNo: "Please enter a Contact Number",
+                    TeacherDesignation: "Please enter a Designation",
+                    TeacherDepartment: "Please enter a Department",
+                    
+                }
+            });
+        });
+        
+    </script>
 </body>
 </html>

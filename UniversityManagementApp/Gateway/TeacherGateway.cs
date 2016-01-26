@@ -11,13 +11,12 @@ namespace UniversityManagementApp.Gateway
 {
     public class TeacherGateway
     {
-        private string connectionString =
-            WebConfigurationManager.ConnectionStrings["UniversityManagementDBConnectionString"].ConnectionString;
-        SqlConnection sqlConnection = new SqlConnection();
+        private SqlConnection sqlConnection;
+        
 
         public int Save(Teacher teacher)
         {
-            sqlConnection.ConnectionString = connectionString;
+            sqlConnection= Connection.MakeConnection(Connection.connectionString);
             string query = "INSERT INTO Teachers " +
                            "(TeacherName,TeacherAddress,TeacherEmail,TeacherContactNo,CreditTaken,DesignationId,DepartmentId) " +
                            "VALUES ('" + teacher.TeacherName + "','" + teacher.TeacherAddress + "','" + teacher.TeacherEmail + "','" + teacher.TeacherContactNo + "','" + teacher.TeacherCreditTaken + 
@@ -31,7 +30,7 @@ namespace UniversityManagementApp.Gateway
 
         public bool SearchByEmail(string teacherEmail)
         {
-            sqlConnection.ConnectionString = connectionString;
+            sqlConnection = Connection.MakeConnection(Connection.connectionString);
             string query = "SELECT * FROM Teachers WHERE TeacherEmail='"+teacherEmail+"'";
             SqlCommand sqlCommand = new SqlCommand(query,sqlConnection);
             sqlConnection.Open();
@@ -44,6 +43,26 @@ namespace UniversityManagementApp.Gateway
             }
             sqlConnection.Close();
             return false;
+        }
+
+        public List<Designation> GetAllDesignations()
+        {
+            List<Designation> allDesignations = new List<Designation>();
+            sqlConnection = Connection.MakeConnection(Connection.connectionString);
+            sqlConnection.Open();
+            string query = "SELECT * FROM Designations";
+            SqlCommand sqlCommand = new SqlCommand(query,sqlConnection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Designation newDesignation = new Designation();
+                newDesignation.DesignationId = sqlDataReader["DesignationId"].ToString();
+                newDesignation.DesignationName = sqlDataReader["DesignationName"].ToString();
+                allDesignations.Add(newDesignation);
+            }
+            sqlConnection.Close();
+            sqlDataReader.Close();
+            return allDesignations;
         }
     }
 }

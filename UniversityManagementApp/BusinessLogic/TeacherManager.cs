@@ -10,6 +10,7 @@ namespace UniversityManagementApp.BusinessLogic
     public class TeacherManager
     {
         TeacherGateway teacherGateway = new TeacherGateway();
+        DepartmentGateway departmentGateway =new DepartmentGateway();
         public string Save(Teacher teacher)
         {
             bool alreadyExists= teacherGateway.SearchByEmail(teacher.TeacherEmail);
@@ -29,6 +30,18 @@ namespace UniversityManagementApp.BusinessLogic
                     return "Could not insert data into the database";
                 }
             }
+        }
+
+        public List<Department> GetAllDepartments()
+        {
+                List<Department> allDepartments = new List<Department>();
+                allDepartments=departmentGateway.GetAllDepartments();
+                return allDepartments;
+        }
+
+        public List<Designation> GetAllDesignations()
+        {
+            return teacherGateway.GetAllDesignations();
         }
     }
 }
