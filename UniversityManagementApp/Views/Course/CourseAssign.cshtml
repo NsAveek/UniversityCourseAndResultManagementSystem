@@ -1,0 +1,113 @@
+﻿@model List<UniversityManagementApp.Models.Department>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>title</title>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        <select id="DepartmentName" name="DepartmentName">
+                            @foreach (var department in Model)
+                            {
+                                <option value="@department.DepartmentId">@department.DepartmentName</option>
+                            }
+                        </select>
+        
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>Teacher</td>
+                    <td>
+                        <select id="TeacherName" id="TeacherName">
+                            @foreach (var department in Model)
+                            {
+                                <option value="@department.DepartmentName">@department.DepartmentName</option>
+                            }
+                        </select>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Credit to be taken</label>
+                    </td>
+                    <td>
+                        <input type="text" id="CreditToBeTaken" name="CreditToBeTaken"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Remaining Credit</label>
+                    </td>
+                    <td>
+                        <input type="text" id="RemainingCredit" name="RemainingCredit"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Course Code</td>
+                    <td>
+                        <select id="CourseCode" name="CourseCode">
+                            @foreach (var department in Model)
+                            {
+                                <option value="@department.DepartmentName">@department.DepartmentName</option>
+                            }
+                        </select>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Name</label>
+                    </td>
+                    <td>
+                        <input type="text" id="CourseName" name="CourseName"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Credit</label>
+                    </td>
+                    <td>
+                        <input type="text" id="CourseCredit" name="CourseCredit"/>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+        
+        <script src="~/Scripts/jquery-2.2.0.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <script>$(document).ready(function(){
+        $('#DepartmentName').change(function () {
+            var str = this.options[this.selectedIndex].value;
+            $.ajax({
+                url: '@Url.Action("GetTeacherCourse", "Course")',
+                type: "POST",
+                data: { "departmentId": str },
+                "success": function (data) {
+                    if (data != null) {
+                        alert(data);
+                    }
+                }
+            });
+
+        });
+        });
+        </script>
+        
+    </body>
+</html>
