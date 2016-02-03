@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>View Course Statics</title>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <select id="DepartmentId">
+                        <option value="">--Please Select One Department--</option>
+                        
+                                @foreach (var department in ViewBag.Departments)
+                                {
+                                    <option value="@department.DepartmentId">
+                                        @department.DepartmentName
+                                    </option>
+                                }
+                    </select>
+                </tr>
+                <tr>
+                    <td> Course Information</td>
+                </tr>
+                <tr>
+                    <table id="CourseInformation">
+                        <tr>
+                            <td>Code</td>
+                            <td>Name/Title</td>
+                            <td>Semester</td>
+                            <td>Assigned To</td>
+
+                        </tr>
+                    </table>
+                </tr>
+            </table>
+        </div>
+        
+        
+        <script src="~/Scripts/jquery-2.2.0.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#DepartmentId').change(function () {
+
+                        var deptId = $("#DepartmentId").val();
+
+
+                        var json = { departmentId: deptId };
+
+                        $.ajax({
+                            url: '@Url.Action("GetCourseInformationByDepartmentId", "Course")',
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(json),
+                            "success": function (data) {
+                                if (data != null) {
+
+                                    $('#CourseInformation tr:gt(0)').remove();
+                                    $.each(data, function (key, value) {
+
+                                        $('#CourseInformation').append('<tr><td>' + value.CourseCode +
+                                            '</td><td>'+value.CourseName+'</td><td>'+value.SemesterName+'</td><td>'+value.AssignTo+
+                                            '</td></tr>');
+                                        
+                                    });
+
+                                }
+                            }
+                        }); //$.ajax 
+                    });// #departmentId
+                });
+            </script>
+        </body>
+</html>

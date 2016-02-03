@@ -7,5 +7,8 @@ namespace UniversityManagementApp.Models
 {
     public class TeacherCourse
     {
+        public List<Teacher> Teacher { get; set; }
+
+        public List<Course> Course { get; set; }
     }
 }

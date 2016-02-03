@@ -162,6 +162,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BusinessLogic\CourseManager.cs" />
     <Compile Include="BusinessLogic\DepartmentManager.cs" />
     <Compile Include="BusinessLogic\TeacherCourseManager.cs" />
     <Compile Include="BusinessLogic\TeacherManager.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Gateway\Connection.cs" />
+    <Compile Include="Gateway\CourseGateway.cs" />
     <Compile Include="Gateway\DepartmentGateway.cs" />
     <Compile Include="Gateway\TeacherCourseGateway.cs" />
     <Compile Include="Gateway\TeacherGateway.cs" />
@@ -177,11 +179,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseAssignView.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Designation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\TeacherCourse.cs" />
+    <Compile Include="Models\ViewCourseStatics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -236,6 +241,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Teacher\SaveTeacher.cshtml" />
     <Content Include="Views\Course\CourseAssign.cshtml" />
+    <Content Include="Views\Course\ViewCourseStatics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

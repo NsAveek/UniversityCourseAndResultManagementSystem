@@ -43,5 +43,23 @@ namespace UniversityManagementApp.BusinessLogic
         {
             return teacherGateway.GetAllDesignations();
         }
+
+        public List<Teacher> GetAllTeachersByDepartmentId(int departmentId)
+        {
+            return teacherGateway.GetAllTeachersByDepartmentId(departmentId);
+        }
+
+        public double GetTeacherCreditById(int teacherId)
+        {
+            return teacherGateway.GetTeacherCreditById(teacherId);
+        }
+
+        public double GetTeacherRemainingCreditById(int teacherId)
+        {
+            double teacherCredit = GetTeacherCreditById(teacherId);
+            double assignedCredit = teacherGateway.GetTeacherAssignedCredit(teacherId);
+
+            return teacherCredit - assignedCredit;
+        }
     }
 }

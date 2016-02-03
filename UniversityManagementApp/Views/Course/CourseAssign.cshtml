@@ -12,101 +12,232 @@
     </head>
     <body>
         <div>
-            <table>
-                <tr>
-                    <td>Department</td>
-                    <td>
-                        <select id="DepartmentName" name="DepartmentName">
-                            @foreach (var department in Model)
-                            {
-                                <option value="@department.DepartmentId">@department.DepartmentName</option>
-                            }
-                        </select>
-        
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td>Teacher</td>
-                    <td>
-                        <select id="TeacherName" id="TeacherName">
-                            @foreach (var department in Model)
-                            {
-                                <option value="@department.DepartmentName">@department.DepartmentName</option>
-                            }
-                        </select>
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td>
-                        <label>Credit to be taken</label>
-                    </td>
-                    <td>
-                        <input type="text" id="CreditToBeTaken" name="CreditToBeTaken"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Remaining Credit</label>
-                    </td>
-                    <td>
-                        <input type="text" id="RemainingCredit" name="RemainingCredit"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Course Code</td>
-                    <td>
-                        <select id="CourseCode" name="CourseCode">
-                            @foreach (var department in Model)
-                            {
-                                <option value="@department.DepartmentName">@department.DepartmentName</option>
-                            }
-                        </select>
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td>
-                        <label>Name</label>
-                    </td>
-                    <td>
-                        <input type="text" id="CourseName" name="CourseName"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Credit</label>
-                    </td>
-                    <td>
-                        <input type="text" id="CourseCredit" name="CourseCredit"/>
-                    </td>
-                </tr>
-            </table>
             
+            <form id="assignCourse" method="POST" name="assignCourse">
+                <table>
+                    <tr>
+                        <td>@ViewBag.CourseId</td>
+                        <td>@ViewBag.TeacherId</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>
+                            <select id="DepartmentName" name="DepartmentName">
+
+                                <option value="">--Select one department --</option>
+                                @foreach (var department in Model)
+                                {
+
+                                    <option value="@department.DepartmentId">@department.DepartmentName</option>
+                                }
+                            </select>
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Teacher</td>
+                        <td>
+                            <select id="TeacherId" id="TeacherId">
+
+                                <option value=""></option>
+
+                            </select>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Credit to be taken</label>
+                        </td>
+                        <td>
+                            <input type="text" id="CreditToBeTaken" name="CreditToBeTaken" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Remaining Credit</label>
+                        </td>
+                        <td>
+                            <input type="text" id="RemainingCredit" name="RemainingCredit" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Course Code</td>
+                        <td>
+                            <select id="CourseId" name="CourseId">
+
+                                <option value=""></option>
+
+                            </select>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Name</label>
+                        </td>
+                        <td>
+                            <input type="text" id="CourseName" name="CourseName" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Credit</label>
+                        </td>
+                        <td>
+                            <input type="text" id="CourseCredit" name="CourseCredit" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2">
+                            <input type="submit" value="ASSIGN" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
         
         <script src="~/Scripts/jquery-2.2.0.js"></script>
         <script src="~/Scripts/jquery.validate.js"></script>
-        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-        <script>$(document).ready(function(){
-        $('#DepartmentName').change(function () {
-            var str = this.options[this.selectedIndex].value;
-            $.ajax({
-                url: '@Url.Action("GetTeacherCourse", "Course")',
-                type: "POST",
-                data: { "departmentId": str },
-                "success": function (data) {
-                    if (data != null) {
-                        alert(data);
+        @*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+        <script>
+            $(document).ready(function () {
+
+
+
+                $.validator.addMethod('ge', function (value, element, param) {
+                    return this.optional(element) || parseFloat(value) <= parseFloat($(param).val());
+                }, 'Invalid value');
+
+                $("#assignCourse").validate({
+                    rules: {
+                        CourseCredit: {
+                            ge: '#RemainingCredit',
+                        },
+                    },
+                    messages: {
+                       
+                        CourseCredit:
+                        {ge: 'Remaining Credit must be greater than the course credit'},
+
                     }
+                });
+
+
+
+                $('#DepartmentName').change(function () {
+
+                    var deptId = $("#DepartmentName").val();
+
+                    //clearFields();
+                    $("#CreditToBeTaken").val("");
+                    $("#RemainingCredit").val("");
+                    $("#CourseName").val("");
+                    $("#CourseCredit").val("");
+                    $("#TeacherId").empty();
+                    $("#CourseId").empty();
+                    
+
+
+                    var json = { departmentId: deptId };
+
+                    $.ajax({
+                        url: '@Url.Action("GetTeacherCourseByDepartmentId", "Course")',
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(json),
+                        "success": function (data) {
+                            if (data != null) {
+                                
+                                $("#TeacherId").append('<option value="">Select One From Dropdown </option>');
+                                $("#CourseId").append('<option value="">Select One From Dropdown </option>');
+
+                                //clearFields();
+
+                                
+                                $("#CreditToBeTaken").val("");
+                                $("#RemainingCredit").val("");
+                                $("#CourseName").val("");
+                                $("#CourseCredit").val("");
+
+                                $.each(data.Teacher, function (key, value) {
+
+                                    $("#TeacherId").append('<option value=' + value.TeacherId + '>' + value.TeacherName + '</option>');
+                                });
+                                $.each(data.Course, function (key, value) {
+
+                                    $("#CourseId").append('<option value=' + value.CourseId + '>' + value.CourseCode + '</option>');
+                                });
+                            
+                            }
+                        }
+                    });
+                    @*$.post('@Url.Action("GetTeacherCourseByDepartmentId", "Course")' , json, function(data) {
+                        console.log(data);
+                    });*@
+                });
+
+                $('#TeacherId').change(function() {
+
+                    var teacherId = $("#TeacherId").val();
+                   
+                    //clearFields();
+                    $("#CreditToBeTaken").val("");
+                    $("#RemainingCredit").val("");
+
+                    var json = { teacherId: teacherId };
+
+                    $.post('@Url.Action("GetTeacherInfoById", "Course")', json, function (data) {
+                        
+
+                        $("#CreditToBeTaken").val(data[0]);
+                        $("#RemainingCredit").val(data[1]);
+                        
+                        //alert(data[0]);
+                        //alert(data[1]);
+
+                    });
+                   
+                });
+
+
+                $('#CourseId').change(function() {
+
+                    var courseId = $("#CourseId").val();
+                   
+                    //clearFields();
+                    $("#CourseName").val("");
+                    $("#CourseCredit").val("");
+
+                    var json = { courseId: courseId };
+
+                    $.post('@Url.Action("GetCourseByCourseId", "Course")', json, function (data) {
+                        $("#CourseName").val(data.CourseName);
+                        $("#CourseCredit").val(data.CourseCredit);
+                        
+
+                    });
+                });
+                function clearFields() {
+                    //alert("you are in function");
+                    
+                    $("#CreditToBeTaken").empty();
+                    $("#RemainingCredit").empty();
+                    $("#CourseName").empty();
+                    $("#CourseCredit").empty();
+                    return;
                 }
+
             });
 
-        });
-        });
+           
+
+
+
         </script>
         
     </body>

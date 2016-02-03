@@ -64,5 +64,74 @@ namespace UniversityManagementApp.Gateway
             sqlDataReader.Close();
             return allDesignations;
         }
+
+        public List<Teacher> GetAllTeachersByDepartmentId(int departmentId)
+        {
+            List<Teacher> teachers = new List<Teacher>();
+            sqlConnection = Connection.MakeConnection(Connection.connectionString);
+            string query = "SELECT * FROM Teachers WHERE DepartmentId=" + departmentId;
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                Teacher newTeacher = new Teacher();
+
+                newTeacher.TeacherId = Convert.ToInt32(sqlDataReader["TeacherId"]);
+                
+                newTeacher.TeacherName = sqlDataReader["TeacherName"].ToString();
+
+                teachers.Add(newTeacher);
+            }
+            sqlConnection.Close();
+            sqlDataReader.Close();
+
+
+            return teachers;
+        }
+
+        public double GetTeacherCreditById(int teacherId)
+        {
+            
+            sqlConnection = Connection.MakeConnection(Connection.connectionString);
+            string query = "SELECT * FROM Teachers WHERE TeacherId=" + teacherId;
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            double teacherCreditAllowed=0;
+            if (sqlDataReader.Read())
+            {
+                
+                teacherCreditAllowed = Convert.ToDouble(sqlDataReader["CreditTaken"]);
+                
+            }
+
+            return teacherCreditAllowed;
+        }
+
+        public double GetTeacherAssignedCredit(int teacherId)
+        {
+            double totalCreditAssigned = 0;
+
+            sqlConnection = Connection.MakeConnection(Connection.connectionString);
+            string query = "SELECT CourseId from CourseAssign WHERE TeacherId = "+teacherId;
+            SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+            sqlConnection.Open();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            
+            while (sqlDataReader.Read())
+            {
+
+                totalCreditAssigned += GetCourseCreditById(Convert.ToInt32(sqlDataReader["CourseId"]));
+
+            }
+            return totalCreditAssigned;
+        }
+
+        private double GetCourseCreditById(int courseId)
+        {
+            CourseGateway courseGateway = new CourseGateway();
+            return courseGateway.GetCourseCreditByCourseId(courseId);
+        }
     }
 }

@@ -11,9 +11,13 @@ namespace UniversityManagementApp.Controllers
 {
     public class CourseController : Controller
     {
+        private TeacherCourseManager teacherCourseManager;
+        private DepartmentManager departmentManager;
+        private TeacherManager teacherManager;
+        private CourseManager courseManager;
         public ActionResult CourseAssign()
         {
-            DepartmentManager departmentManager = new DepartmentManager();
+            departmentManager = new DepartmentManager();
             List<Department> allDepartments = departmentManager.GetAllDepartments();
             return View(allDepartments);
         }
@@ -21,15 +25,73 @@ namespace UniversityManagementApp.Controllers
         [HttpPost]
         public ActionResult CourseAssign(CourseAssignView courseAssignView)
         {
+            teacherCourseManager = new TeacherCourseManager();
+            //ViewBag.Message= teacherCourseManager.AssignCourse(courseAssignView);
+            ViewBag.CourseId = courseAssignView.CourseId;
+            ViewBag.TeacherId = courseAssignView.TeacherId;
+
+
+
+
+            departmentManager = new DepartmentManager();
+            List<Department> allDepartments = departmentManager.GetAllDepartments();
+            return View(allDepartments);
+        }
+
+        public ActionResult ViewCourseStatics()
+        {
+            departmentManager = new DepartmentManager();
+            List<Department> allDepartments = departmentManager.GetAllDepartments();
+            ViewBag.Departments = allDepartments;
             return View();
         }
-        [HttpPost]
-        public ActionResult GetTeacherCourse(string departmentId)
-        {
-            int newDepartmentId = Convert.ToInt32(departmentId);
-            List<TeacherCourse> allTeacherCourse =TeacherCourseManager.GetAllTeacherCourse(newDepartmentId);
 
-            return Content(allTeacherCourse);
+        public JsonResult GetCourseInformationByDepartmentId(int departmentId)
+        {
+            CourseManager aCourseManager = new CourseManager();
+            List<ViewCourseStatics> allViewCourseStaticses = new List<ViewCourseStatics>();
+
+            allViewCourseStaticses = aCourseManager.GetCourseInformationByDepartmentId(departmentId);
+
+
+            return Json(allViewCourseStaticses, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+        public JsonResult GetTeacherCourseByDepartmentId(int departmentId)
+        {
+            teacherCourseManager = new TeacherCourseManager();
+            teacherManager = new TeacherManager();
+            courseManager = new CourseManager();
+
+            List<Teacher> allTeachers = teacherManager.GetAllTeachersByDepartmentId(departmentId);
+            List<Course> allCourses = courseManager.GetAllCoursesByDepartmentId(departmentId);
+            TeacherCourse newTeacherCourse = new TeacherCourse();
+            newTeacherCourse.Teacher = allTeachers;
+            newTeacherCourse.Course = allCourses;
+
+            return Json(newTeacherCourse, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetTeacherInfoById(int teacherId)
+        {
+            teacherManager = new TeacherManager();
+            double teacherCredit = teacherManager.GetTeacherCreditById(teacherId);
+            double remainingCredit = teacherManager.GetTeacherRemainingCreditById(teacherId);
+            List<double> credits = new List<double>();
+            credits.Add(teacherCredit);
+            credits.Add(remainingCredit);
+            return Json(credits, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCourseByCourseId(int courseId)
+        {
+            courseManager = new CourseManager();
+            Course aCourse = courseManager.GetCourseByCourseId(courseId);
+
+            return Json(aCourse, JsonRequestBehavior.AllowGet);
         }
     }
 }
