@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
+﻿
 namespace UniversityManagementApp.Models
 {
     public class Teacher
@@ -12,12 +8,8 @@ namespace UniversityManagementApp.Models
         public string TeacherAddress { get; set; }
         public string TeacherEmail { get; set; }
         public string TeacherContactNo { get; set; }
-        public string TeacherDesignation { get; set; }
-        public string TeacherDepartment { get; set; }
-        public double TeacherCreditTaken { get; set; }
-
-
-
-
+        public decimal CreditTaken { get; set; }
+        public int DesignationId { get; set; }
+        public int DepartmentId { get; set; }
     }
 }

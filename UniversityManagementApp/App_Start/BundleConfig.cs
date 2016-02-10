@@ -20,12 +20,27 @@ namespace UniversityManagementApp
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/bootstrap.min.js",
+                       "~/Scripts/respond.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/pluginJs").Include(
+                      "~/Scripts/metisMenu.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/datepicker").Include(
+                      "~/Scripts/moment.min.js",
+                      "~/Scripts/bootstrap-datepicker.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customJs").Include(
+                      "~/Scripts/jquery.validate.min.js",
+                      "~/Scripts/custom.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.min.css",
+                      "~/Content/metisMenu.min.css",
+                      "~/Content/site.css",
+                      "~/Content/font-awesome.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/datepicker").Include("~/Content/bootstrap-datepicker.min.css"));
         }
     }
 }

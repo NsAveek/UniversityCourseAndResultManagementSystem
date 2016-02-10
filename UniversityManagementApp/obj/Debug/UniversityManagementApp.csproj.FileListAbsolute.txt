@@ -1,56 +1,19 @@
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\UniversityManagementApp.dll.config
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\UniversityManagementApp.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\UniversityManagementApp.pdb
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Antlr3.Runtime.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\EntityFramework.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\EntityFramework.SqlServer.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.AspNet.Identity.Core.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.AspNet.Identity.Owin.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Host.SystemWeb.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Cookies.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Facebook.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Google.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.OAuth.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Twitter.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Web.Infrastructure.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Newtonsoft.Json.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Owin.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Helpers.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Mvc.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Optimization.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Razor.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.WebPages.Deployment.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.WebPages.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.WebPages.Razor.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\WebGrease.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Helpers.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Mvc.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Optimization.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.Razor.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.WebPages.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.WebPages.Deployment.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\System.Web.WebPages.Razor.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Newtonsoft.Json.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Antlr3.Runtime.pdb
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\EntityFramework.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\EntityFramework.SqlServer.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.AspNet.Identity.Core.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.AspNet.Identity.Owin.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Host.SystemWeb.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Facebook.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Cookies.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.OAuth.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Google.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.Twitter.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\obj\Debug\UniversityManagementApp.csprojResolveAssemblyReference.cache
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\obj\Debug\UniversityManagementApp.dll
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\obj\Debug\UniversityManagementApp.pdb
-F:\Visual Studio Workspace\Visual Studio 2013 Workspace\UniversityManagementApp\UniversityCourseAndResultManagementSystem\UniversityManagementApp\bin\WebActivatorEx.dll
+I:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.dll.config
+I:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.dll
+I:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.pdb
+I:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.csprojResolveAssemblyReference.cache
+I:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.dll
+I:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.pdb
+E:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.dll.config
+E:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.dll
+E:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.pdb
+E:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.dll
+E:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.pdb
+E:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.csprojResolveAssemblyReference.cache
+E:\Chayan\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.dll.config
+E:\Chayan\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.dll
+E:\Chayan\Project-02\UniversityManagementApp\UniversityManagementApp\bin\UniversityManagementApp.pdb
+E:\Chayan\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.csprojResolveAssemblyReference.cache
+E:\Chayan\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.dll
+E:\Chayan\Project-02\UniversityManagementApp\UniversityManagementApp\obj\Debug\UniversityManagementApp.pdb
+I:\C#\Project-02\UniversityManagementApp\UniversityManagementApp\bin\Rotativa.dll

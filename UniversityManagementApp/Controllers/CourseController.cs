@@ -1,97 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using UniversityManagementApp.BusinessLogic;
-using UniversityManagementApp.Gateway;
+using UniversityManagementApp.Manager;
 using UniversityManagementApp.Models;
 
 namespace UniversityManagementApp.Controllers
 {
     public class CourseController : Controller
     {
-        private TeacherCourseManager teacherCourseManager;
-        private DepartmentManager departmentManager;
-        private TeacherManager teacherManager;
-        private CourseManager courseManager;
-        public ActionResult CourseAssign()
+        CourseManager aCourseManager = new CourseManager();
+        DepartmentManager aDepartmentManager = new DepartmentManager();
+        SemesterManager aSemesterManager = new SemesterManager();
+        public ActionResult Save()
         {
-            departmentManager = new DepartmentManager();
-            List<Department> allDepartments = departmentManager.GetAllDepartments();
-            return View(allDepartments);
-        }
-
-        [HttpPost]
-        public ActionResult CourseAssign(CourseAssignView courseAssignView)
-        {
-            teacherCourseManager = new TeacherCourseManager();
-            //ViewBag.Message= teacherCourseManager.AssignCourse(courseAssignView);
-            ViewBag.CourseId = courseAssignView.CourseId;
-            ViewBag.TeacherId = courseAssignView.TeacherId;
-
-
-
-
-            departmentManager = new DepartmentManager();
-            List<Department> allDepartments = departmentManager.GetAllDepartments();
-            return View(allDepartments);
-        }
-
-        public ActionResult ViewCourseStatics()
-        {
-            departmentManager = new DepartmentManager();
-            List<Department> allDepartments = departmentManager.GetAllDepartments();
-            ViewBag.Departments = allDepartments;
+            ViewBag.Departments = aDepartmentManager.GetAllDepartments();
+            ViewBag.Semesters = aSemesterManager.GetAllSemesters();
             return View();
         }
 
-        public JsonResult GetCourseInformationByDepartmentId(int departmentId)
+        [HttpPost]
+        public ActionResult Save(Course aCourse)
         {
-            CourseManager aCourseManager = new CourseManager();
-            List<ViewCourseStatics> allViewCourseStaticses = new List<ViewCourseStatics>();
-
-            allViewCourseStaticses = aCourseManager.GetCourseInformationByDepartmentId(departmentId);
-
-
-            return Json(allViewCourseStaticses, JsonRequestBehavior.AllowGet);
+            ViewBag.response = aCourseManager.Save(aCourse);
+            ViewBag.Departments = aDepartmentManager.GetAllDepartments();
+            ViewBag.Semesters = aSemesterManager.GetAllSemesters();
+            return View();
         }
 
-
-
-
-        public JsonResult GetTeacherCourseByDepartmentId(int departmentId)
+        public ActionResult Statics()
         {
-            teacherCourseManager = new TeacherCourseManager();
-            teacherManager = new TeacherManager();
-            courseManager = new CourseManager();
-
-            List<Teacher> allTeachers = teacherManager.GetAllTeachersByDepartmentId(departmentId);
-            List<Course> allCourses = courseManager.GetAllCoursesByDepartmentId(departmentId);
-            TeacherCourse newTeacherCourse = new TeacherCourse();
-            newTeacherCourse.Teacher = allTeachers;
-            newTeacherCourse.Course = allCourses;
-
-            return Json(newTeacherCourse, JsonRequestBehavior.AllowGet);
+            ViewBag.Departments = aDepartmentManager.GetAllDepartments();
+            return View();
         }
 
-        public JsonResult GetTeacherInfoById(int teacherId)
+        [HttpPost]
+        public ActionResult StaticsView(int DepartmentId)
         {
-            teacherManager = new TeacherManager();
-            double teacherCredit = teacherManager.GetTeacherCreditById(teacherId);
-            double remainingCredit = teacherManager.GetTeacherRemainingCreditById(teacherId);
-            List<double> credits = new List<double>();
-            credits.Add(teacherCredit);
-            credits.Add(remainingCredit);
-            return Json(credits, JsonRequestBehavior.AllowGet);
+            ViewBag.courseStatics = aCourseManager.GetCourseStaticsByDepartment(DepartmentId);
+            return View();
         }
-
-        public JsonResult GetCourseByCourseId(int courseId)
-        {
-            courseManager = new CourseManager();
-            Course aCourse = courseManager.GetCourseByCourseId(courseId);
-
-            return Json(aCourse, JsonRequestBehavior.AllowGet);
-        }
-    }
+	}
 }
